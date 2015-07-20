@@ -1,0 +1,22 @@
+{
+  "name": "trump",
+  "version": "1.0.0",
+  "description": "Did Donald Trump really say that?",
+  "main": "web.js",
+  "scripts": {
+    "test": "node web.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jthurst3/trump.git"
+  },
+  "keywords": [
+    "trump"
+  ],
+  "author": "J. Hassler Thurston",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jthurst3/trump/issues"
+  },
+  "homepage": "https://github.com/jthurst3/trump#readme"
+}
