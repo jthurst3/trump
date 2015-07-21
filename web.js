@@ -43,7 +43,7 @@ mongooseDB.mongooseInit();
 
 // homepage. By default, redirect this to the /index page
 app.get('/', function(request, response) {
-    response.redirect("/index");
+    response.render("index");
 });
 
 io.on('connection', function (socket) {
@@ -59,7 +59,6 @@ var server = http.createServer(app);
 // start the server
 io.listen(server.listen(app.get('port'), function() {
     console.log("Listening on " + app.get('port'));
-    console.log("hostname is: " + util.inspect(server.address()));
 }));
 
 

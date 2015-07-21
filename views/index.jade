@@ -1,0 +1,33 @@
+//- main HTML template file.
+//- Reference: http://jade-lang.com/reference/extends/
+//- 
+//- J. Hassler Thurston
+//- Did Trump Really Say This? website
+//- 20 July 2015
+
+
+doctype html
+html
+    head
+        title Did Donald Trump Say This?
+        block includes
+            // Bootstrap
+            // from http://getbootstrap.com/getting-started/#download
+            link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
+            link(rel="stylesheet" href="/assets/trump.css")
+    body
+        //-include ./navbar.jade
+        block content
+            p
+                | No content here quite yet.
+        include ./footer.jade
+        block scripts
+            script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+
+            script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
+            script(src="/socket.io/socket.io.js")
+            script(type="text/javascript")
+                | var socket;
+
+
+
