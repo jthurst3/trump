@@ -5,6 +5,9 @@
 //- Did Trump Really Say This? website
 //- 20 July 2015
 
+mixin quote(quote)
+    p #{quote.quote}
+    p by #{quote.author}
 
 doctype html
 html
@@ -18,8 +21,9 @@ html
     body
         //-include ./navbar.jade
         block content
-            p
-                | No content here quite yet.
+            p Are you good at telling whether Donald Trump actually said something?
+            each quote in quotes
+                +quote(quote)
         include ./footer.jade
         block scripts
             script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")

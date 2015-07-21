@@ -15,6 +15,7 @@ var util = require('util'),
     express = require('express'),
     http = require('http'),
     mongooseDB = require('./models/mongooseDB'),
+    GetQuote = require('./models/getQuote'),
     session = require('express-session'),
     MongoStore = require('connect-mongo')(session),
     io = require("socket.io")(http),
@@ -43,11 +44,14 @@ mongooseDB.mongooseInit();
 
 // homepage. By default, redirect this to the /index page
 app.get('/', function(request, response) {
-    response.render("index");
+    // by default, give people 10 quotes to rate
+    GetQuote.getRandomQuote(10, function(quotes) {
+        response.render("index", {quotes: quotes});
+    }
 });
 
 io.on('connection', function (socket) {
-
+    // TODO: put IO content here
 });
 
 // listen on port 8080 (or another port if it's specified in the .env file)
