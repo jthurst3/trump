@@ -46,8 +46,9 @@ mongooseDB.mongooseInit();
 app.get('/', function(request, response) {
     // by default, give people 10 quotes to rate
     GetQuote.getRandomQuote(10, function(quotes) {
+        console.log("quotes are: " + util.inspect(quotes));
         response.render("index", {quotes: quotes});
-    }
+    });
 });
 
 io.on('connection', function (socket) {
