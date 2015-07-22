@@ -1,0 +1,14 @@
+h1, h2 {
+    text-align: center;
+    font: 24px Verdana;
+}
+
+.box {
+    border: 5px solid red;
+}
+
+.score {
+    font: 18px Verdana;
+    color: blue;
+    text-align: center;
+}

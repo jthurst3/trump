@@ -5,9 +5,18 @@
 //- Did Trump Really Say This? website
 //- 20 July 2015
 
-mixin quote(quote)
-    p #{quote.quote}
-    p by #{quote.author}
+mixin quote(quote, number)
+    div.box(style="display: none" number="#{number}")
+        h2 Did Donald Trump say this?
+        p "#{quote.quote}"
+        div.row
+            div.btn-group.btn-group-justified(role="group")
+                div.btn-group
+                    button(type="button" class="btn btn-default button-yes") Yes!
+                div.btn-group
+                    button(type="button" class="btn btn-default button-no") No!
+
+        input(type="hidden" name="answer" value="#{quote.author}")
 
 doctype html
 html
@@ -21,17 +30,22 @@ html
     body
         //-include ./navbar.jade
         block content
-            p Are you good at telling whether Donald Trump actually said something?
-            each quote in quotes
-                +quote(quote)
+            input(type="hidden" name="numQuotes" value="#{quotes.length}")
+            div.row-fluid
+                div.col-md-8.col-md-offset-2
+                    h1 Are you good at telling whether Donald Trump actually said something?
+            div.row-fluid
+                div.col-md-4.col-md-offset-4
+                    p.score Score: 0
+                    each quote, i in quotes
+                        +quote(quote, i)
         include ./footer.jade
         block scripts
             script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
 
             script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
             script(src="/socket.io/socket.io.js")
-            script(type="text/javascript")
-                | var socket;
+            script(src="/assets/trump-script.js")
 
 
 

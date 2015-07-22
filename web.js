@@ -45,7 +45,8 @@ mongooseDB.mongooseInit();
 // homepage. By default, redirect this to the /index page
 app.get('/', function(request, response) {
     // by default, give people 10 quotes to rate
-    GetQuote.getRandomQuote(10, function(quotes) {
+    var numQuotes = 10;
+    GetQuote.getRandomQuote(numQuotes, function(quotes) {
         console.log("quotes are: " + util.inspect(quotes));
         response.render("index", {quotes: quotes});
     });
